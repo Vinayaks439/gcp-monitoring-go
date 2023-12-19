@@ -1,2 +1,2 @@
-# gcp-monitoring-go
+# gcp-monitoring
 Pulling metrices from GCP programatically

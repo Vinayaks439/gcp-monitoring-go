@@ -13,9 +13,10 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-
+*.json
 # Dependency directories (remove the comment below to include it)
 # vendor/
-
+#IDE
+.idea
 # Go workspace file
 go.work
