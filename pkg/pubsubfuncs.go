@@ -45,10 +45,8 @@ func (m Monitor) NoUndeliveredMessages(ctx context.Context, config *internal.Con
 			metric.EndTime = time.Unix(points.TimeInterval.EndTime.Seconds, 0)
 			result.MetricData = append(result.MetricData, metric)
 		}
-		for _, labels := range timeseries.LabelValues {
-			label.ProjectId = labels.GetStringValue()
-			label.SubscriptionId = labels.GetStringValue()
-		}
+		label.ProjectId = timeseries.LabelValues[0].GetStringValue()
+		label.SubscriptionId = timeseries.LabelValues[1].GetStringValue()
 		result.LabelData = label
 		result.TimeSeriesData = timeseries
 		return result, nil
@@ -90,10 +88,8 @@ func (m Monitor) OldestUnackedMessageAge(ctx context.Context, config *internal.C
 			metric.EndTime = time.Unix(points.TimeInterval.EndTime.Seconds, 0)
 			result.MetricData = append(result.MetricData, metric)
 		}
-		for _, labels := range timeseries.LabelValues {
-			label.ProjectId = labels.GetStringValue()
-			label.SubscriptionId = labels.GetStringValue()
-		}
+		label.ProjectId = timeseries.LabelValues[0].GetStringValue()
+		label.SubscriptionId = timeseries.LabelValues[1].GetStringValue()
 		result.LabelData = label
 		result.TimeSeriesData = timeseries
 		return result, nil
